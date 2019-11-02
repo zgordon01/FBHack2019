@@ -23,7 +23,7 @@ const postToPage = async (message) => {
 };
 
 const receiveHookPost = (req, res) => {
-    console.log('entries returns', Object.keys(req.body));
+    console.log('can you see me logs?');
 
     postToPage('skunkisherefromcode').then(() => {
             res.sendStatus(200);
