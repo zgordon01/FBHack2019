@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const auth = require('./config.json').access_token;
 const fetch = require('node-fetch');
 const headers = {
