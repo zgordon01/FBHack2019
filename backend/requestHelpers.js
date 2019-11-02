@@ -12,6 +12,14 @@ const getAllPageActivity = async () => {
         headers
     });
 };
+// ?fields=id,name,posts{reactions,message}
+const queryPage = async (queryStr) => {
+    const url = `https://graph.facebook.com/v3.2/103256931121230${queryStr}`;
+    return await fetch(url, {
+        method: 'get',
+        headers
+    });
+}
 
 const postToPage = async (message) => {
     const url = `https://graph.facebook.com/v3.2/103256931121230/feed?message=${message}`;
@@ -64,4 +72,4 @@ const receiveHookGet = (req, res) => {
     }
 }
 
-module.exports = {getAllPageActivity, receiveHookPost, receiveHookGet}
+module.exports = {getAllPageActivity, receiveHookPost, receiveHookGet, queryPage}

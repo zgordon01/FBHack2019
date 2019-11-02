@@ -1,4 +1,4 @@
-const {getAllPageActivity: getAllPageActiivty, receiveHook} = require('./requestHelpers.js');
+const {getAllPageActivity: getAllPageActiivty, receiveHook, queryPage} = require('./requestHelpers.js');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -25,6 +25,24 @@ app.get('/get-page-posts', asyncMiddleware(
       }
     })
 );
+
+app.get('/react', asyncMiddleware(
+  async (req, res, next) => {
+    const queryParams = '?fields=id,name,posts{reactions,message}';
+    try{
+      let data = await queryPage(queryParams);
+      data = await parsePostData(data);
+      data = data.filter(post =>{
+        const reacts = getReactCountFromPost(post);
+        reacts.angry.length ? true : false;
+      });
+      return res.json(data);
+    } catch (e) {
+      return res.json({error: e.message});
+    }
+  })
+);
+
 app.get('/hello', (req, res, next)=>{
   return res.json({
     message: 'hello world'

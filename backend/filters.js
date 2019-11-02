@@ -26,4 +26,18 @@ const filterPostsByHour = (data, hours) => {
     return postTime >= oldestTime;
   });
 };
+
+const getReactCountFromPost = async (post) => {
+  const reactCt = {
+    like: 0,
+    laugh: 0,
+    angry: 0
+  }
+  if(post.reactions) {
+    
+  }
+  return reactCt;
+
+}
+
 module.exports = {parsePostData, filterPostsByHour}
