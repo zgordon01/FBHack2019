@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "server": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "messenger-node": "^0.3.2"
+    "messenger-node": "^0.3.2",
+    "nodemon": "^1.18.9"
   }
 }
