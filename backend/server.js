@@ -1,5 +1,5 @@
 const express = require('express');
-const {getAllPageActivity: getAllPageActiivty} = require('./requestHelpers.js');
+const {getAllPageActivity: getAllPageActiivty} = require('./functions/requestHelpers.js');
 const app = express();
 const port = process.env.PORT || 5000;
 
