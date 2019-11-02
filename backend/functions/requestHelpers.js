@@ -4,25 +4,12 @@ const headers = {
   'Content-Type':'application/json',
   'Authorization': auth
 };
-// just for me to look at
-const postStructure = {
-  message: null,
-  geo_locations: {
-    zips: [
-      {key: null}
-    ]
-  }
-}
-const getAllPageActivity = (req, res) => {
+
+const getAllPageActivity = async () => {
   const url = 'https://graph.facebook.com/v3.2/103256931121230/feed';
-  return fetch(url, {
+  return await fetch(url, {
     method: 'get',
     headers
-  }).then(data=>{
-    // object.entities
-    return data.json().then(parsedData => {
-      return res.json(parsedData);
-    });
   });
 }
 
